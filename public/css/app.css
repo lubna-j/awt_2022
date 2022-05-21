@@ -11285,4 +11285,11 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+
+  img.slider-img{
+        height: : 400px !important;
+    }
+    .custom-product{
+        height: 600px;
+    }
 }
