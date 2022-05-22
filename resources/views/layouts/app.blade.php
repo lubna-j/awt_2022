@@ -1,4 +1,6 @@
+
 <!doctype html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -24,6 +26,10 @@
 </head>
 
 <body>
+    <?php 
+      use App\Http\Controllers\ProductController;
+      $total = ProductController::cartItem();  
+    ?>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -36,9 +42,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if(Auth::user())
                     <ul class="navbar-nav me-auto">
+                         <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <form action="/product_search" class="d-flex">
+                                <input class="form-control me-2 search-box" type="text" placeholder="product name" aria-label="Search" name="query">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </li>
 
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -56,7 +73,14 @@
                                 </li>
                             @endif
                         @else
+
+                          
+                            <li class="nav-item">
+                                <a class="nav-link" href="/cartList">cart({{$total}})</a>
+                            </li>
+
                             <li class="nav-item dropdown">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -72,6 +96,8 @@
                                         @csrf
                                     </form>
                                 </div>
+
+
                             </li>
                         @endguest
                     </ul>
