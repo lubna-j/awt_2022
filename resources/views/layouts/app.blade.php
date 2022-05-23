@@ -47,6 +47,9 @@
                          <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/myOrders">Orders</a>
+                        </li>
                         <li class="nav-item"> 
                             <form action="/product_search" class="d-flex">
                                 <input class="form-control me-2 search-box" type="text" placeholder="product name" aria-label="Search" name="query">

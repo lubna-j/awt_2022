@@ -116,4 +116,16 @@ class ProductController extends Controller
         }
         return redirect('/');
     }
+
+    public function myOrders()
+    {
+        if(Auth::user())
+        {
+            $user_id = Auth::user()->id;
+            $orders = Order::where('user_id',$user_id)->get();
+           // $product = Product::whereIn('id',$product_ids)->get();
+       
+            return view('myOrders',['orders'=>$orders]);
+        }
+    }
 }

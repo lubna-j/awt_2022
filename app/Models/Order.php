@@ -11,4 +11,9 @@ class Order extends Model
     public $table="orders";
     public $timestamps = false;
 
+
+    public function product()
+    {
+         return $this->belongsTo('App\Models\Product','product_id','id');
+    } 
 }
