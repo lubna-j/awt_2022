@@ -31,3 +31,6 @@ Route::get("product_search",[App\Http\Controllers\ProductController::class, 'sea
 Route::post("add_to_cart",[App\Http\Controllers\ProductController::class, 'add_to_cart']);
 
 Route::get("cartList",[App\Http\Controllers\ProductController::class, 'cartList']);
+Route::get("removecart/{id}",[App\Http\Controllers\ProductController::class, 'removecart']);
+Route::get("orderNow",[App\Http\Controllers\ProductController::class, 'orderNow']);
+Route::post("orderPlace",[App\Http\Controllers\ProductController::class, 'orderPlace']);

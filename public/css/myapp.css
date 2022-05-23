@@ -31,3 +31,8 @@ img.slider-img{
 .searched-item{
 	margin: 0px auto;
 }
+.cart-list-devider{
+	border-bottom: 1px solid #CCC ;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
